@@ -2,7 +2,6 @@ package com.artservice.config;
 
 import com.timgroup.statsd.NonBlockingStatsDClientBuilder;
 import com.timgroup.statsd.StatsDClient;
-import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -13,14 +12,13 @@ import org.springframework.context.annotation.Configuration;
  * @since 25/06/2021
  */
 @Configuration
-@AllArgsConstructor
-public class DataDog {
+public class DataDogConfig {
 
-    @Value("${management.metrics.export.statsd.host}")
-    private final String statsdHost;
+    @Value("${datadog.statsd.host}")
+    private String statsdHost;
 
-    @Value("${management.metrics.export.statsd.port}")
-    private final int statsdPort;
+    @Value("${datadog.statsd.port}")
+    private int statsdPort;
 
     @Bean
     public StatsDClient statsDClient() {

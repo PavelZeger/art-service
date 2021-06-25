@@ -1,5 +1,6 @@
 package com.artservice.controller;
 
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -11,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class SystemController {
 
-    @GetMapping(path = "/status")
+    @GetMapping(path = "/status", produces = MediaType.TEXT_PLAIN_VALUE)
     public String status() {
         return "OK";
     }
