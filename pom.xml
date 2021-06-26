@@ -44,6 +44,7 @@
         <commons-io.version>2.10.0</commons-io.version>
         <git-commit-id-plugin.version>4.0.5</git-commit-id-plugin.version>
         <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
+        <spring-context-indexer.version>5.3.8</spring-context-indexer.version>
     </properties>
 
     <dependencies>
@@ -51,6 +52,17 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context-indexer</artifactId>
+            <version>${spring-context-indexer.version}</version>
         </dependency>
 
 <!--        <dependency>-->
