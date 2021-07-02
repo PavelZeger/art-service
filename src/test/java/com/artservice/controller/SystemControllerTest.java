@@ -6,12 +6,10 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
-import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.reactive.AutoConfigureWebTestClient;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.reactive.server.WebTestClient;
 
 import static org.junit.jupiter.api.TestInstance.Lifecycle;
@@ -21,7 +19,6 @@ import static org.junit.jupiter.api.TestInstance.Lifecycle;
  * @implNote art-service
  * @since 25/06/2021
  */
-@ExtendWith(SpringExtension.class)
 @TestInstance(Lifecycle.PER_CLASS)
 @AutoConfigureWebTestClient
 class SystemControllerTest extends AbstractTest {
