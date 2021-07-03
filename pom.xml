@@ -47,6 +47,7 @@
         <spring-context-indexer.version>5.3.8</spring-context-indexer.version>
         <springfox-swagger2.version>3.0.0</springfox-swagger2.version>
         <springfox-swagger-ui.version>3.0.0</springfox-swagger-ui.version>
+        <jasypt-spring-boot-starter.version>3.0.3</jasypt-spring-boot-starter.version>
     </properties>
 
     <dependencies>
@@ -242,6 +243,12 @@
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger-ui</artifactId>
             <version>${springfox-swagger-ui.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.github.ulisesbocchio</groupId>
+            <artifactId>jasypt-spring-boot-starter</artifactId>
+            <version>${jasypt-spring-boot-starter.version}</version>
         </dependency>
 
     </dependencies>
