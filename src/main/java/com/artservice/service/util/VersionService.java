@@ -33,7 +33,7 @@ public class VersionService {
             properties.load(inputStream);
             version = properties.get("git.tags").toString();
             fullVersion = IOUtils.toString(inputStream, StandardCharsets.UTF_8.name());
-            log.info(String.format("Loaded art service version: %s", fullVersion));
+            log.info("Loaded art service version: ".concat(fullVersion));
         }
     }
 

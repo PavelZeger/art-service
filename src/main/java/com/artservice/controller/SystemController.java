@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @implNote art-service
  * @since 25/06/2021
  */
+//@ConditionalOnCloudPlatform(CloudPlatform.KUBERNETES)
 @RestController
 public class SystemController {
 

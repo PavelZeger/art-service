@@ -19,16 +19,17 @@ import java.util.stream.Collectors;
  * @implNote art-service
  * @since 30/06/2021
  */
+// TODO to fix - context fails!!!
 @Slf4j
-@Service
 @RequiredArgsConstructor
+@Service
 public class EmailService {
 
     @Value("${spring.mail.sender.address}")
     private final String senderAddress;
 
     @Autowired
-    private JavaMailSender javaMailSender;
+    private final JavaMailSender javaMailSender;
 
     @SneakyThrows
     public void sendEmail(List<Address> recipients, String subject, String messageText) {

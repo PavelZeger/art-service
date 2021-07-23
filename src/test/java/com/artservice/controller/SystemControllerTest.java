@@ -2,14 +2,16 @@ package com.artservice.controller;
 
 import com.artservice.AbstractTest;
 import com.artservice.service.util.VersionService;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestInstance;
+import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.parallel.Execution;
+import org.junit.jupiter.api.parallel.ExecutionMode;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.reactive.AutoConfigureWebTestClient;
+import org.springframework.boot.test.autoconfigure.web.reactive.WebFluxTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
+import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.reactive.server.WebTestClient;
 
 import static org.junit.jupiter.api.TestInstance.Lifecycle;
@@ -19,9 +21,13 @@ import static org.junit.jupiter.api.TestInstance.Lifecycle;
  * @implNote art-service
  * @since 25/06/2021
  */
+@Tag("systemController")
+@Execution(ExecutionMode.CONCURRENT)
+@RunWith(SpringRunner.class)
+@WebFluxTest
 @TestInstance(Lifecycle.PER_CLASS)
 @AutoConfigureWebTestClient
-class SystemControllerTest extends AbstractTest {
+class SystemControllerTest {
 
     @Autowired
     private WebTestClient webTestClient;
