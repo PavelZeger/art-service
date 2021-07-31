@@ -32,7 +32,7 @@ public class AsyncConfig extends AsyncConfigurerSupport {
 
     @Bean(name = ASYNC)
     public Executor threadPoolTaskExecutor() {
-        var executor = getThreadPoolTaskExecutor(asyncCorePoolSize, asyncMaxPoolSize, "async-");
+        var executor = getThreadPoolTaskExecutor(asyncCorePoolSize, asyncMaxPoolSize, ASYNC.concat("-"));
         executor.setQueueCapacity(asyncQueueCapacity);
         executor.setWaitForTasksToCompleteOnShutdown(true);
         executor.initialize();
@@ -50,8 +50,8 @@ public class AsyncConfig extends AsyncConfigurerSupport {
     @Override
     public AsyncUncaughtExceptionHandler getAsyncUncaughtExceptionHandler() {
         return (exception, method, params) -> {
-            log.info("Exception: " + exception.getMessage());
-            log.info("Method Name: " + method.getName());
+            log.info("Exception: ".concat(exception.getMessage()));
+            log.info("Method Name: ".concat(method.getName()));
             exception.printStackTrace();
         };
     }

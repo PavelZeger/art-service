@@ -1,4 +1,4 @@
-Copyright 2021 Pavel Zeger
+Copyright 2021-2021 Pavel Zeger
 
 Licensed under the Apache License, Version 2.0 (the "License");  
 you may not use this file except in compliance with the License.  
