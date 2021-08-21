@@ -1,4 +1,4 @@
-package com.artservice.dto.system;
+package com.artservice.model.response.system;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;

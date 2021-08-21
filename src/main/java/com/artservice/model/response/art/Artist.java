@@ -1,6 +1,6 @@
-package com.artservice.dto.art;
+package com.artservice.model.response.art;
 
-import com.artservice.dto.Links;
+import com.artservice.model.response.Links;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -16,31 +16,33 @@ import java.util.List;
  */
 @Value
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Image {
+public class Artist {
 
     String id;
-
-    @JsonProperty(value = "created_at")
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSXXX")
-    LocalDateTime createdDateTime;
+    String slug;
 
     @JsonProperty(value = "updated_at")
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSXXX")
     LocalDateTime modifiedDateTime;
 
-    int position;
+    @JsonProperty(value = "name")
+    String fullName;
 
-    @JsonProperty(value = "default")
-    boolean isDefault;
+    @JsonProperty(value = "sortable_name")
+    String sortableFullName;
 
-    @JsonProperty(value = "aspect_ratio")
-    double aspectRation;
+    String gender;
+    String biography;
 
-    @JsonProperty(value = "original_height")
-    double originalHeight;
+    @JsonProperty(value = "birthday")
+    int birthYear;
 
-    @JsonProperty(value = "original_width")
-    double originalWidth;
+    @JsonProperty(value = "deathday")
+    int deathYear;
+
+    String hometown;
+    String location;
+    String nationality;
 
     @JsonProperty(value = "image_versions")
     List<String> imageVersions;
@@ -48,5 +50,6 @@ public class Image {
     @JsonProperty(value = "_links") //TODO @JsonAnySetter @JsonAnyGetter HAL Documents
 //    @JsonUnwrapped
     Links links;
+
 
 }

@@ -1,6 +1,6 @@
-package com.artservice.dto.art;
+package com.artservice.model.response.partner;
 
-import com.artservice.dto.Links;
+import com.artservice.model.response.Links;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -15,9 +15,10 @@ import java.time.LocalDateTime;
  */
 @Value
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class CollectionItem {
+public class Partner {
 
     String id;
+    String slug;
 
     @JsonProperty(value = "created_at")
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSXXX")
@@ -27,7 +28,10 @@ public class CollectionItem {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSXXX")
     LocalDateTime modifiedDateTime;
 
-    int position;
+    String type;
+    String name;
+    String email;
+    String region;
 
     @JsonProperty(value = "_links") //TODO @JsonAnySetter @JsonAnyGetter HAL Documents
 //    @JsonUnwrapped

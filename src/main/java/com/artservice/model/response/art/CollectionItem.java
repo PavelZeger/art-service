@@ -1,6 +1,6 @@
-package com.artservice.dto.event;
+package com.artservice.model.response.art;
 
-import com.artservice.dto.Links;
+import com.artservice.model.response.Links;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -15,7 +15,7 @@ import java.time.LocalDateTime;
  */
 @Value
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Fair {
+public class CollectionItem {
 
     String id;
 
@@ -27,23 +27,7 @@ public class Fair {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSXXX")
     LocalDateTime modifiedDateTime;
 
-    String name;
-    String about;
-    String contact;
-    String summary;
-
-    @JsonProperty(value = "start_at")
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSXXX")
-    LocalDateTime startDatetime;
-
-    @JsonProperty(value = "end_at")
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSXXX")
-    LocalDateTime endDateTime;
-
-    String status;
-
-    @JsonProperty(value = "published")
-    boolean isPublished;
+    int position;
 
     @JsonProperty(value = "_links") //TODO @JsonAnySetter @JsonAnyGetter HAL Documents
 //    @JsonUnwrapped

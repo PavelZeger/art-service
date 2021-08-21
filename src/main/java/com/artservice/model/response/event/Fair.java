@@ -1,6 +1,6 @@
-package com.artservice.dto.partner;
+package com.artservice.model.response.event;
 
-import com.artservice.dto.Links;
+import com.artservice.model.response.Links;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -15,10 +15,9 @@ import java.time.LocalDateTime;
  */
 @Value
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Partner {
+public class Fair {
 
     String id;
-    String slug;
 
     @JsonProperty(value = "created_at")
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSXXX")
@@ -28,10 +27,23 @@ public class Partner {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSXXX")
     LocalDateTime modifiedDateTime;
 
-    String type;
     String name;
-    String email;
-    String region;
+    String about;
+    String contact;
+    String summary;
+
+    @JsonProperty(value = "start_at")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSXXX")
+    LocalDateTime startDatetime;
+
+    @JsonProperty(value = "end_at")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSXXX")
+    LocalDateTime endDateTime;
+
+    String status;
+
+    @JsonProperty(value = "published")
+    boolean isPublished;
 
     @JsonProperty(value = "_links") //TODO @JsonAnySetter @JsonAnyGetter HAL Documents
 //    @JsonUnwrapped

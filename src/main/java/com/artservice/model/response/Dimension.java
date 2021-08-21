@@ -1,4 +1,4 @@
-package com.artservice.dto;
+package com.artservice.model.response;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Value;

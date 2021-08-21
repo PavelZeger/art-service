@@ -1,7 +1,7 @@
-package com.artservice.dto.art;
+package com.artservice.model.response.art;
 
-import com.artservice.dto.Dimensions;
-import com.artservice.dto.Links;
+import com.artservice.model.response.Dimensions;
+import com.artservice.model.response.Links;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;

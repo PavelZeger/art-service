@@ -1,13 +1,13 @@
-package com.artservice.dto.art;
+package com.artservice.model.response.art;
 
-import com.artservice.dto.Dimensions;
-import com.artservice.dto.Links;
+import com.artservice.model.response.Links;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Value;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 /**
  * @author Pavel Zeger
@@ -16,7 +16,7 @@ import java.time.LocalDateTime;
  */
 @Value
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Edition {
+public class Image {
 
     String id;
 
@@ -28,26 +28,22 @@ public class Edition {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSXXX")
     LocalDateTime modifiedDateTime;
 
-    Dimensions dimensions;
-    String editions;
-    String size;
+    int position;
 
-    @JsonProperty(value = "available_editions")
-    String availableEditions;
+    @JsonProperty(value = "default")
+    boolean isDefault;
 
-    @JsonProperty(value = "artist_proofs")
-    String artistsProofs;
+    @JsonProperty(value = "aspect_ratio")
+    double aspectRation;
 
-    String prototypes;
+    @JsonProperty(value = "original_height")
+    double originalHeight;
 
-    @JsonProperty(value = "can_acquire")
-    boolean isCanAcquire;
+    @JsonProperty(value = "original_width")
+    double originalWidth;
 
-    @JsonProperty(value = "sale_message")
-    String saleMessage;
-
-    @JsonProperty(value = "sold")
-    boolean isSold;
+    @JsonProperty(value = "image_versions")
+    List<String> imageVersions;
 
     @JsonProperty(value = "_links") //TODO @JsonAnySetter @JsonAnyGetter HAL Documents
 //    @JsonUnwrapped

@@ -1,13 +1,13 @@
-package com.artservice.dto.partner;
+package com.artservice.model.response.art;
 
-import com.artservice.dto.Links;
+import com.artservice.model.response.Dimensions;
+import com.artservice.model.response.Links;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Value;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
 /**
  * @author Pavel Zeger
@@ -16,7 +16,7 @@ import java.util.List;
  */
 @Value
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Profile {
+public class Edition {
 
     String id;
 
@@ -28,12 +28,26 @@ public class Profile {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSXXX")
     LocalDateTime modifiedDateTime;
 
-    String handle;
-    String location;
-    String description;
+    Dimensions dimensions;
+    String editions;
+    String size;
 
-    @JsonProperty(value = "image_versions")
-    List<String> imageVersions;
+    @JsonProperty(value = "available_editions")
+    String availableEditions;
+
+    @JsonProperty(value = "artist_proofs")
+    String artistsProofs;
+
+    String prototypes;
+
+    @JsonProperty(value = "can_acquire")
+    boolean isCanAcquire;
+
+    @JsonProperty(value = "sale_message")
+    String saleMessage;
+
+    @JsonProperty(value = "sold")
+    boolean isSold;
 
     @JsonProperty(value = "_links") //TODO @JsonAnySetter @JsonAnyGetter HAL Documents
 //    @JsonUnwrapped
