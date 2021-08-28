@@ -8,6 +8,9 @@ package com.artservice.service.util;
 public enum Metric {
 
     APP_START,
-    GENERAL_ERROR;
+    GENERAL_ERROR,
+    STATUS_REQUEST_DURATION,
+    STATUS_REQUEST_COUNT,
+    STATUS_REQUEST_ERROR
 
 }

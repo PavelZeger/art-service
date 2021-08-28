@@ -14,10 +14,10 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class DataDogConfig {
 
-    @Value("${datadog.statsd.host}")
+    @Value("${management.metrics.export.statsd.host}")
     private String statsdHost;
 
-    @Value("${datadog.statsd.port}")
+    @Value("${management.metrics.export.statsd.port}")
     private int statsdPort;
 
     @Bean
