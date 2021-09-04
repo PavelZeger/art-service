@@ -1,8 +1,7 @@
 package com.artservice;
 
-import org.junit.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
 
 /**
  * @author Pavel Zeger
@@ -12,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class ArtServiceApplicationTest extends AbstractTest {
 
     @Test
-    public void shouldReturnDecryptedPassword() {
+    void shouldReturnDecryptedPassword() {
         assert true;
     }
 

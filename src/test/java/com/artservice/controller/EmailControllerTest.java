@@ -6,14 +6,12 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.parallel.Execution;
 import org.junit.jupiter.api.parallel.ExecutionMode;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 /**
  * @author Pavel Zeger
  * @implNote art-service
  * @since 01/07/2021
  */
-@Tag("`emailController")
+@Tag("controller")
 @Execution(ExecutionMode.CONCURRENT)
 class EmailControllerTest extends AbstractTest {
 

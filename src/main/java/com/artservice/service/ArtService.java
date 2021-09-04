@@ -8,7 +8,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-import org.springframework.web.reactive.function.client.WebClient;
 
 import java.time.Instant;
 import java.time.LocalDateTime;
@@ -29,9 +28,6 @@ public class ArtService {
 
     @Value("${artsy.timeout}")
     private int timeout;
-
-    @Autowired
-    private WebClient webClient;
 
     @Autowired
     private MetricService metricService;

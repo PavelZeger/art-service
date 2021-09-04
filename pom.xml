@@ -45,11 +45,12 @@
         <git-commit-id-plugin.version>4.0.5</git-commit-id-plugin.version>
         <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
         <spring-context-indexer.version>5.3.9</spring-context-indexer.version>
-        <springfox-swagger2.version>3.0.0</springfox-swagger2.version>
-        <springfox-swagger-ui.version>3.0.0</springfox-swagger-ui.version>
-        <jasypt-spring-boot-starter.version>3.0.3</jasypt-spring-boot-starter.version>
         <jackson-dataformat-hal.version>1.0.9</jackson-dataformat-hal.version>
         <springdoc-openapi-ui.version>1.5.10</springdoc-openapi-ui.version>
+        <vavr.version>0.10.3</vavr.version>
+        <spring-boot-admin.version>2.5.0</spring-boot-admin.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
 
     <dependencies>
@@ -62,7 +63,13 @@
         <dependency>
             <groupId>de.codecentric</groupId>
             <artifactId>spring-boot-admin-starter-server</artifactId>
-            <version>2.5.0</version>
+            <version>${spring-boot-admin.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>de.codecentric</groupId>
+            <artifactId>spring-boot-admin-starter-client</artifactId>
+            <version>${spring-boot-admin.version}</version>
         </dependency>
 
         <dependency>
@@ -193,6 +200,12 @@
         </dependency>
 
         <dependency>
+            <groupId>io.vavr</groupId>
+            <artifactId>vavr</artifactId>
+            <version>${vavr.version}</version>
+        </dependency>
+
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
@@ -238,12 +251,6 @@
             <groupId>org.springdoc</groupId>
             <artifactId>springdoc-openapi-ui</artifactId>
             <version>${springdoc-openapi-ui.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.github.ulisesbocchio</groupId>
-            <artifactId>jasypt-spring-boot-starter</artifactId>
-            <version>${jasypt-spring-boot-starter.version}</version>
         </dependency>
 
     </dependencies>
@@ -328,12 +335,6 @@
                     </gitDescribe>
                 </configuration>
 
-            </plugin>
-
-            <plugin>
-                <groupId>com.github.ulisesbocchio</groupId>
-                <artifactId>jasypt-maven-plugin</artifactId>
-                <version>${jasypt-spring-boot-starter.version}</version>
             </plugin>
 
         </plugins>

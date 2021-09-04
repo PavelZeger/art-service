@@ -4,7 +4,7 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 .dcignore
-art-service-passwords.sh
+*.txt
 
 ### STS ###
 .apt_generated
@@ -34,3 +34,4 @@ build/
 
 ### VS Code ###
 .vscode/
+!/art-service-passwords.txt
