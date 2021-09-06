@@ -2,6 +2,7 @@ package com.artservice.service.util;
 
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,8 +21,8 @@ import java.util.stream.Collectors;
  * @implNote art-service
  * @since 30/06/2021
  */
-// TODO to fix - context fails!!!
 @Slf4j
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Service

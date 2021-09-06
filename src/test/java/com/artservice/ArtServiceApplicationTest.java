@@ -11,8 +11,8 @@ import org.junit.jupiter.api.Test;
 class ArtServiceApplicationTest extends AbstractTest {
 
     @Test
-    void shouldReturnDecryptedPassword() {
-        assert true;
+    public void contextLoads() {
     }
+
 
 }

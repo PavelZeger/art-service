@@ -1,19 +1,28 @@
-FROM maven:3.8-adoptopenjdk-11 as build
+FROM maven:3.8.1-adoptopenjdk-11 AS build
 
-COPY pom.xml /usr/src/app/pom.xml
-RUN mvn -f /usr/src/app/pom.xml dependency:resolve dependency:resolve-plugins
-
-COPY src /usr/src/app/src
-COPY .git /usr/src/app/.git
-
+ENV APP /usr/src/app
 ENV SPRING_PROFILES_ACTIVE=staging
 
-RUN mvn -f /usr/src/app/pom.xml clean package \
-    && mvn -f /usr/src/app/pom.xml jacoco:check
+COPY pom.xml ${APP}/pom.xml
+COPY src ${APP}/src
+COPY .git ${APP}/.git
 
-FROM bellsoft/liberica-openjdk-alpine-musl:11 AS executable
+RUN mvn -f ${APP}/pom.xml clean package verify
 
-COPY --from=build ...
+FROM bellsoft/liberica-openjdk-alpine-musl:11 AS app
 
-EXPOSE 8080
-ENTRYPOINT ["", "entrypoint.sh"]
+ENV APP /usr/src/app
+
+RUN addgroup --gid 1001 --system appuser \
+    && adduser --uid 1001 --system appuser --ingroup appuser
+
+COPY --from=build ${APP}/target/art-service.jar ${APP}/art-service.jar
+COPY entrypoint.sh /
+
+RUN chown -R 1001:1001 ${APP}
+USER 1001
+WORKDIR ${APP}
+
+EXPOSE 8080 8125 9090
+
+ENTRYPOINT ["/bin/bash", "/entrypoint.sh"]
