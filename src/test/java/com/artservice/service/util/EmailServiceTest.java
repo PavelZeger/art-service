@@ -1,6 +1,6 @@
 package com.artservice.service.util;
 
-//import com.artservice.AbstractTest;
+//import com.artservice.BaseTest;
 //import org.junit.jupiter.api.*;
 //import org.junit.jupiter.api.parallel.ResourceAccessMode;
 //import org.junit.jupiter.api.parallel.ResourceLock;
@@ -22,7 +22,7 @@ package com.artservice.service.util;
 //        @Tag("..."),
 //        @Tag("...")
 //})
-//class EmailServiceTest extends AbstractTest {
+//class EmailServiceTest extends BaseTest {
 //
 //    private static final String RECIPIENT = "test@gmail.com";
 //

@@ -11,7 +11,7 @@ import org.springframework.boot.test.context.SpringBootTest;
  */
 @Tag("base")
 @Slf4j
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public abstract class AbstractTest {
+@SpringBootTest
+public abstract class BaseTest {
 
 }

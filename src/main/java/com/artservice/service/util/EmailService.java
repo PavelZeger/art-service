@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
-import javax.mail.Address;
 import javax.mail.Message;
 import javax.mail.internet.InternetAddress;
 import java.util.List;
@@ -35,17 +34,16 @@ public class EmailService {
     private JavaMailSender javaMailSender;
 
     @SneakyThrows
-    public void sendEmail(List<Address> recipients, String subject, String messageText) {
+    public void sendEmail(List<String> recipients, String subject, String messageText) {
         var mimeMessage = javaMailSender.createMimeMessage();
         mimeMessage.setSender(new InternetAddress(senderAddress));
         mimeMessage.setFrom();
-        mimeMessage.setRecipients(Message.RecipientType.TO, recipients.toArray(Address[]::new));
+        mimeMessage.setRecipients(
+                Message.RecipientType.TO,
+                recipients.stream().collect(Collectors.joining(",", "", "")));
         mimeMessage.setSubject(subject);
         mimeMessage.setText(messageText);
-        log.info("The email was sent to the following recipients: {}",
-                recipients.stream()
-                        .map(Address::toString)
-                        .collect(Collectors.toUnmodifiableList()));
+        log.info("The email was sent to the following recipients: {}", recipients.stream().collect(Collectors.joining(",", "", "")));
         javaMailSender.send(mimeMessage);
     }
 

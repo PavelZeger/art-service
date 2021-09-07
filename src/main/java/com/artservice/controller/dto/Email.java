@@ -1,8 +1,8 @@
 package com.artservice.controller.dto;
 
+import lombok.Builder;
 import lombok.Data;
 
-import javax.mail.Address;
 import javax.validation.constraints.NotNull;
 import java.util.List;
 
@@ -12,10 +12,11 @@ import java.util.List;
  * @since 01/07/2021
  */
 @Data
+@Builder
 public class Email {
 
     @NotNull
-    List<Address> recipients;
+    List<String> recipients;
     
     @NotNull
     String subject;

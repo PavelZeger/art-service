@@ -9,8 +9,10 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.MvcResult;
 
 import static org.hamcrest.Matchers.containsString;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.TestInstance.Lifecycle;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -29,6 +31,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @WebMvcTest(controllers = {SystemController.class})
 class SystemControllerTest {
 
+    private static final String STATUS = "OK";
     private static final String VERSION = "1.0";
     private static final String FULL_VERSION = "1.0.0";
 
@@ -47,12 +50,14 @@ class SystemControllerTest {
     @Test
     @DisplayName("System controller should return OK for /status endpoint")
     void testStatus() {
-        mockMvc.perform(get("/status")
+        MvcResult mvcResult = mockMvc.perform(get("/status")
                         .accept(MediaType.TEXT_PLAIN)
                         .contentType(MediaType.TEXT_PLAIN))
                 .andDo(print())
                 .andExpect(status().isOk())
-                .andExpect(content().string(containsString("OK")));
+                .andExpect(content().string(containsString(STATUS)))
+                .andReturn();
+        assertEquals(STATUS, mvcResult.getResponse().getContentAsString());
     }
 
     @SneakyThrows
@@ -61,12 +66,14 @@ class SystemControllerTest {
     @DisplayName("System controller should return string for /version endpoint")
     void testVersion() {
         when(versionService.getVersion()).thenReturn(VERSION);
-        mockMvc.perform(get("/version")
+        MvcResult mvcResult = mockMvc.perform(get("/version")
                         .accept(MediaType.TEXT_PLAIN)
                         .contentType(MediaType.TEXT_PLAIN))
                 .andDo(print())
                 .andExpect(status().isOk())
-                .andExpect(content().string(containsString(VERSION)));
+                .andExpect(content().string(containsString(VERSION)))
+                .andReturn();
+        assertEquals(VERSION, mvcResult.getResponse().getContentAsString());
     }
 
     @SneakyThrows
@@ -75,12 +82,14 @@ class SystemControllerTest {
     @DisplayName("System controller should return string for /version/full endpoint")
     void testFullVersion() {
         when(versionService.getFullVersion()).thenReturn(FULL_VERSION);
-        mockMvc.perform(get("/version/full")
+        MvcResult mvcResult = mockMvc.perform(get("/version/full")
                         .accept(MediaType.TEXT_PLAIN)
                         .contentType(MediaType.TEXT_PLAIN))
                 .andDo(print())
                 .andExpect(status().isOk())
-                .andExpect(content().string(containsString(FULL_VERSION)));
+                .andExpect(content().string(containsString(FULL_VERSION)))
+                .andReturn();
+        assertEquals(FULL_VERSION, mvcResult.getResponse().getContentAsString());
     }
 
 }
